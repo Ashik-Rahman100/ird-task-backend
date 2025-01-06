@@ -33,9 +33,9 @@ app.get("/api/category", (req, res, next) => {
 });
 
 // Get Category by Id
-app.get("/api/category/:name", (req, res, next) => {
-  const sql = "select * from category where cat_name_en = ?";
-  const params = [req.params.name];
+app.get("/api/category/:id", (req, res, next) => {
+  const sql = "select * from category where id = ?";  // change cat_name_en to id
+  const params = [req.params.id];                    // change cat_name_en to id
   db.get(sql, params, (err, row) => {
     if (err) {
       res.status(400).json({ error: err.message });
